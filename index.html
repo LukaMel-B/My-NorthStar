@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Happy Birthday Azee 🩵</title>
     <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;1,400&family=Caveat:wght@400;600;700&family=Permanent+Marker&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Caveat:wght@400;700&family=Permanent+Marker&display=swap"
         rel="stylesheet">
     <style>
         *,
@@ -15,21 +16,26 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            text-align: center;
         }
 
         :root {
+            --navy: #18293f;
+            --navy-light: #1e3a5f;
+            --blue: #2c5282;
+            --blue-pale: #e0ecff;
             --white: #ffffff;
+            --red: #d90429;
+            --ink: #1e2a38;
+            --tape-blue: rgba(144, 180, 224, 0.45);
+            --tape-white: rgba(255, 255, 255, 0.6);
+            --shadow-heavy: 0 12px 30px rgba(0, 0, 0, 0.3);
+            --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.15);
+
             --page-cream: #fdfcf8;
             --page-blue: #f0f6ff;
-            --navy: #18293f;
-            --blue: #2c5282;
-            --blue-light: #4a7ab5;
-            --blue-pale: #dbeafe;
-            --ink: #1e2a38;
             --ink-soft: #6b7a90;
-            --red: #c0473f;
             --gold: #e8b84b;
-            --tape-blue: rgba(144, 180, 224, 0.4);
             --tape-pink: rgba(240, 168, 192, 0.4);
             --tape-gold: rgba(232, 184, 75, 0.4);
         }
@@ -44,19 +50,18 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-        /* PAPER TEXTURE OVERLAY */
+        /* ════ HEAVY PAPER TEXTURE ════ */
         body::before {
             content: '';
             position: fixed;
             inset: 0;
             pointer-events: none;
             z-index: 9998;
-            opacity: 0.04;
-            mix-blend-mode: multiply;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            opacity: 0.06;
+            mix-blend-mode: overlay;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
         }
 
-        /* CONFETTI CANVAS */
         #confetti-canvas {
             position: fixed;
             inset: 0;
@@ -69,7 +74,7 @@
             position: fixed;
             inset: 0;
             z-index: 9000;
-            background: radial-gradient(circle at center, #1e3a5f 0%, var(--navy) 100%);
+            background: radial-gradient(circle at center, var(--navy-light) 0%, var(--navy) 100%);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -228,6 +233,14 @@
             background: var(--tape-gold);
         }
 
+        .t-white {
+            background: var(--tape-white);
+        }
+
+        .t-red {
+            background: rgba(217, 4, 41, 0.4);
+        }
+
         .margin-note {
             font-family: 'Caveat', cursive;
             color: var(--ink-soft);
@@ -255,6 +268,60 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            margin: 0 auto;
+        }
+
+        .torn-paper {
+            background: var(--blue-pale);
+            padding: 25px;
+            width: 100%;
+            position: relative;
+            box-shadow: var(--shadow-heavy);
+            border-radius: 2px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .torn-paper::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 0;
+            right: 0;
+            height: 20px;
+            background: var(--blue-pale);
+            clip-path: polygon(0% 50%, 5% 0%, 10% 50%, 15% 0%, 20% 50%, 25% 0%, 30% 50%, 35% 0%, 40% 50%, 45% 0%, 50% 50%, 55% 0%, 60% 50%, 65% 0%, 70% 50%, 75% 0%, 80% 50%, 85% 0%, 90% 50%, 95% 0%, 100% 50%, 100% 100%, 0% 100%);
+        }
+
+        .polaroid {
+            background: #fff;
+            padding: 12px 12px 45px;
+            box-shadow: var(--shadow-heavy);
+            position: relative;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .polaroid img {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            background: var(--navy-light);
+        }
+
+        .polaroid-cap {
+            position: absolute;
+            bottom: 12px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-family: 'Permanent Marker', cursive;
+            font-size: 1.1rem;
+            color: var(--navy);
         }
 
         /* ════ INLINE NAVIGATION BUTTONS ════ */
@@ -305,6 +372,54 @@
             letter-spacing: 0.05em;
         }
 
+        /* ════ SPECIFIC COMPONENT STYLES ════ */
+
+        /* Tags */
+        .love-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        .love-tag {
+            background: #fff;
+            border: 1px solid var(--blue-pale);
+            border-radius: 30px;
+            padding: 8px 16px;
+            font-family: 'Caveat', cursive;
+            font-size: 1.2rem;
+            color: var(--navy);
+            box-shadow: var(--shadow-light);
+        }
+
+        /* Q&A Cards */
+        .qa-card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: var(--shadow-light);
+            border-left: 4px solid var(--blue);
+            text-align: center;
+            width: 100%;
+        }
+
+        .qa-q {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--navy);
+            margin-bottom: 5px;
+        }
+
+        .qa-a {
+            font-family: 'Caveat', cursive;
+            font-size: 1.3rem;
+            color: var(--ink);
+        }
+
         /* ════ PAGE 1: COVER ════ */
         .cv-photo-wrapper {
             background: #fff;
@@ -313,7 +428,11 @@
             transform: rotate(-2deg);
             max-width: 280px;
             position: relative;
-            margin: 30px 0 20px;
+            margin: 30px auto 20px;
+            z-index: 5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .cv-photo-wrapper img {
@@ -342,6 +461,18 @@
             line-height: 0.9;
             margin-bottom: 10px;
             text-align: center;
+            text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .cv-subtitle {
+            font-family: 'Caveat', cursive;
+            font-size: 1.6rem;
+            color: var(--blue-pale);
+            margin-top: 10px;
+            transform: rotate(2deg);
+            background: rgba(0, 0, 0, 0.4);
+            padding: 5px 15px;
+            border-radius: 20px;
         }
 
         /* ════ PAGE 3: ETIOS LIVA TICKET ════ */
@@ -356,6 +487,9 @@
             transform: rotate(1deg);
             position: relative;
             margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .car-tag {
@@ -366,13 +500,13 @@
             font-weight: 500;
             font-size: 0.85rem;
             display: inline-block;
-            margin: 12px 0;
+            margin: 12px auto;
         }
 
         .car-stamp {
             position: absolute;
-            bottom: -5px;
-            right: -10px;
+            bottom: 20px;
+            right: 10px;
             border: 2px solid var(--red);
             color: var(--red);
             padding: 4px 12px;
@@ -382,13 +516,14 @@
             opacity: 0.8;
         }
 
-        /* ════ PAGE 4: FLIPPABLE PHOTOS (4 PIC GRID) ════ */
+        /* ════ FLIPPABLE PHOTOS (4 PIC GRID) ════ */
         .photo-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 15px;
             width: 100%;
             margin-top: 20px;
+            justify-items: center;
         }
 
         .flip-card {
@@ -435,6 +570,10 @@
             padding: 8px 8px 35px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
             border: 1px solid #eee;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         .flip-face.back {
@@ -489,7 +628,7 @@
             line-height: 1.3;
         }
 
-        /* ════ PAGE 5: MCQ QUIZ ════ */
+        /* ════ MCQ QUIZ ════ */
         .quiz-container {
             background: #fff;
             border-radius: 12px;
@@ -498,10 +637,15 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             position: relative;
             margin-top: 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .mcq-box {
             display: none;
+            width: 100%;
         }
 
         .mcq-box.active {
@@ -534,7 +678,7 @@
         .mcq-opt {
             display: block;
             width: 100%;
-            text-align: left;
+            text-align: center;
             background: var(--page-blue);
             border: 2px solid transparent;
             border-radius: 8px;
@@ -569,6 +713,8 @@
             margin-bottom: 15px;
             border-radius: 8px;
             border-left: 4px solid var(--navy);
+            text-align: center;
+            width: 100%;
         }
 
         .res-q {
@@ -585,6 +731,8 @@
             display: flex;
             flex-direction: column;
             gap: 4px;
+            align-items: center;
+            justify-content: center;
         }
 
         .res-his {
@@ -596,52 +744,101 @@
             font-weight: 700;
         }
 
+
+
+
         /* ════ PAGE 6: POOKIE FILES ════ */
+
         .pookie-grid {
+
             display: flex;
+
             flex-direction: column;
+
             gap: 20px;
+
             width: 100%;
+
             margin-top: 20px;
+
         }
+
+
 
         .p-note {
+
             background: #fff;
+
             padding: 20px;
+
             box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.08);
+
             position: relative;
+
             border-radius: 4px;
+
         }
+
+
 
         .p-note:nth-child(1) {
+
             transform: rotate(-2deg);
+
             border-top: 4px solid var(--blue-light);
+
         }
+
+
 
         .p-note:nth-child(2) {
+
             transform: rotate(1.5deg);
+
             border-top: 4px solid var(--red);
+
         }
+
+
 
         .p-note:nth-child(3) {
+
             transform: rotate(-1deg);
+
             border-top: 4px solid var(--gold);
+
             background: #fff8f0;
+
         }
+
+
 
         .p-title {
+
             font-family: 'Permanent Marker', cursive;
+
             font-size: 1.3rem;
+
             margin-bottom: 8px;
+
             color: var(--navy);
+
         }
 
+
+
         .p-body {
+
             font-family: 'Caveat', cursive;
+
             font-size: 1.25rem;
+
             line-height: 1.5;
+
             color: var(--ink-soft);
+
         }
+
 
         /* ════ POPUP ════ */
         .popup {
@@ -669,6 +866,10 @@
             position: relative;
             max-height: 85vh;
             overflow-y: auto;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .popup-close {
@@ -911,9 +1112,89 @@
             </div>
         </div>
     </section>
+    <!-- ════ PAGE 5: THINGS ABOUT YOU & BRAG CORNER ════ -->
+    <section class="book-page bg-cream" id="page-4">
+        <span class="stk bg-fade" style="top:10%; left:-10%; font-size: 12rem;">⚓</span>
+
+        <div class="content-wrap">
+            <span class="stk" style="top:2%; right:10%; font-size:2.5rem;">🔥</span>
+            <span class="stk" style="bottom:10%; left:5%; font-size:2rem;">😎</span>
+
+            <div class="margin-note" style="top: 0; left: 5%; transform: rotate(-5deg);">
+                A man of many loves
+            </div>
+
+            <h2
+                style="font-family: 'Permanent Marker', cursive; font-size: 2.2rem; color: var(--navy); margin-top: 30px; margin-bottom: 10px;">
+                The Brag Corner 🏆</h2>
+
+            <div class="torn-paper" style="margin-top: 40px;">
+                <div class="tape t-gold"
+                    style="width: 70px; top: -12px; left: 50%; transform: translateX(-50%) rotate(2deg);"></div>
+
+                <p
+                    style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.1rem; color: var(--ink); line-height: 1.6;">
+                    "You love to tell me your wins. Your proud moments. The things that went right. And I love listening
+                    to every single one of them. Keep bragging, Azee. I'm always listening."
+                </p>
+            </div>
+
+            <div class="nav-trigger nav-pill" style="margin-top: 40px;" onclick="goPage(5)">
+                See why I'm proud ➔
+            </div>
+        </div>
+    </section>
+    <!-- ════ PAGE 5: PROUD OF YOU ════ -->
+    <section class="book-page bg-blue" id="page-5">
+        <span class="stk bg-fade" style="top:40%; right:-10%;">⚓</span>
+
+        <div class="content-wrap">
+            <span class="stk" style="top:5%; left:5%; font-size:3rem;">⭐</span>
+            <span class="stk" style="bottom:10%; right:5%; font-size:2.5rem;">💪</span>
+
+            <h2
+                style="font-family: 'Permanent Marker', cursive; font-size: 2.2rem; color: var(--navy); margin-top: 40px; margin-bottom: 10px;">
+                The Man You've Become</h2>
+            <p style="font-family: 'Caveat', cursive; font-size: 1.3rem; color: var(--ink-soft); margin-bottom: 30px;">
+                not just a husband. as a man.</p>
+
+            <div class="torn-paper" style="background: var(--page-cream);">
+                <div class="tape t-blue"
+                    style="width: 70px; top: -12px; left: 50%; transform: translateX(-50%) rotate(-2deg);"></div>
+                <div style="margin-bottom: 20px;">
+                    <strong
+                        style="font-family: 'Permanent Marker', cursive; font-size: 1.2rem; color: var(--navy); display: block;">Upright</strong>
+                    <p
+                        style="font-family: 'DM Sans', sans-serif; font-size: 0.95rem; color: var(--ink); line-height: 1.5;">
+                        You don't bend for pressure. You only change when you find something more right.</p>
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <strong
+                        style="font-family: 'Permanent Marker', cursive; font-size: 1.2rem; color: var(--navy); display: block;">Dealing
+                        With People</strong>
+                    <p
+                        style="font-family: 'DM Sans', sans-serif; font-size: 0.95rem; color: var(--ink); line-height: 1.5;">
+                        Whatever the situation, however they are, you know exactly how to handle it.</p>
+                </div>
+                <div>
+                    <strong
+                        style="font-family: 'Permanent Marker', cursive; font-size: 1.2rem; color: var(--navy); display: block;">Honest
+                        and Righteous
+                    </strong>
+                    <p
+                        style="font-family: 'DM Sans', sans-serif; font-size: 0.95rem; color: var(--ink); line-height: 1.5;">
+                        Trust that unbreakable. Loyalty that never changes. A man of words.</p>
+                </div>
+            </div>
+
+            <div class="nav-trigger nav-pill" style="margin-top: 40px;" onclick="goPage(6)">
+                Be Prepared... ➔
+            </div>
+        </div>
+    </section>
 
     <!-- ════ PAGE 5: THE MCQ QUIZ ════ -->
-    <section class="book-page bg-cream" id="page-4">
+    <section class="book-page bg-cream" id="page-6">
         <span class="stk bg-fade" style="top:20%; left:-10%; font-size: 10rem;">🧭</span>
 
         <div class="content-wrap">
@@ -967,14 +1248,14 @@
 
             <div class="nav-trigger nav-sticky"
                 style="background: #e8f1fb; color: var(--blue); margin-top: 40px; display: none;" id="quiz-skip-btn"
-                onclick="goPage(5)">
+                onclick="goPage(7)">
                 skip to the confidential stuff 🤫 ➔
             </div>
         </div>
     </section>
 
     <!-- ════ PAGE 6: THE POOKIE FILES ════ -->
-    <section class="book-page bg-blue" id="page-5">
+    <section class="book-page bg-blue" id="page-7">
         <span class="stk bg-fade" style="top:40%; right:-10%;">⚓</span>
 
         <div class="content-wrap">
@@ -1011,14 +1292,14 @@
                 </div>
             </div>
 
-            <div class="nav-trigger nav-pill" style="margin-top: 50px;" onclick="goPage(6)">
+            <div class="nav-trigger nav-pill" style="margin-top: 50px;" onclick="goPage(8)">
                 wrap it up ➔
             </div>
         </div>
     </section>
 
     <!-- ════ PAGE 7: OUTRO ════ -->
-    <section class="book-page bg-dark" id="page-6">
+    <section class="book-page bg-dark" id="page-8">
         <span class="stk bg-fade" style="top:20%; left:-5%;">🚢</span>
 
         <div class="content-wrap" style="justify-content: center; height: 100%;">
